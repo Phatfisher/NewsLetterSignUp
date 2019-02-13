@@ -21,13 +21,13 @@
 </head>
 
 <body class="text-center">
-    <form class="form-signin">
+    <form action="/" class="form-signin" method="post">
         <img class="mb-4" src="images/image1.jpg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Sign-up for my Newsletter!</h1>
 
-        <input type="text" class="form-control top" placeholder="First Name" required autofocus>
-        <input type="text" class="form-control middle" placeholder="Last Name" required>
-        <input type="email" class="form-control bottom" placeholder="Email" required>
+        <input type="text" name="fName" class="form-control top" placeholder="First Name" required autofocus>
+        <input type="text" name="lName" class="form-control middle" placeholder="Last Name" required>
+        <input type="email" name="email" class="form-control bottom" placeholder="Email" required>
         <div class="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me"> Remember me
