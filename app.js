@@ -32,32 +32,34 @@ app.post("/", function(req,res){
         url:"https://us20.api.mailchimp.com/3.0/lists/16319cf120",
         method: "POST",
         headers: {
-            "Authorization":"ma1 fc7ebb5e913f372a5b7d3fdc5d0e642b-us20"
+            "Authorization":"ma1 06d0b4584422577418bd08b94548fe90-us20"
         },
         body: jsonData
     };
 
 
-    request(options,function(err,res,body){
+    request(options,function(err,response,body){
         if(err){
-            console.log(err);
+            res.sendFile(__dirname + "/failure.html");
         }
         else{
-            console.log(res.statusCode);
+            if(response.statusCode === 200){
+                res.sendFile( __dirname + "/success.html"); 
+            }
+            else{
+                res.sendFile(__dirname + "/failure.html");
+            }
         }
             
     })
-
-    console.log(firstName + lastName + email);
 });
 
-app.listen(3000, function(){
+app.post("/failure", function(req, res){
+    res.redirect("/");
+});
+
+app.listen(process.env.PORT || 3000, function(){
     console.log("Port 3000 now running");
 });
 
-//api key 
-//fc7ebb5e913f372a5b7d3fdc5d0e642b-us20
-
-//list id 
-//16319cf120
 
